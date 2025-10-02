@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of users$ | async; track user.id) {
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>
+        <button (click)="toggleActive(user.id)">
+          {{ user.active ? 'Active' : 'Inactive' }}
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

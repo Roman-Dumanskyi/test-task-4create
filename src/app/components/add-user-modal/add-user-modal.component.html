@@ -1,0 +1,8 @@
+<form [formGroup]="form">
+  <label>Name:</label>
+  <input formControlName="name" />
+  @if(form.get('name')?.errors?.['notUnique']) {
+    <div>Name must be unique</div>
+  }
+  <button (click)="createUser()" [disabled]="form.invalid || form.pending">Create</button>
+</form>
